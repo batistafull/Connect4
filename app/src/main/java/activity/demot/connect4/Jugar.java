@@ -1,5 +1,6 @@
 package activity.demot.connect4;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -79,14 +80,16 @@ public class Jugar extends AppCompatActivity implements View.OnClickListener{
 
     public void verificarJuego(int fila){
         if((list.get(fila+35).equals("O") &&
-                list.get(fila+28).equals("O") &&
-                list.get(fila+21).equals("O") &&
-                list.get(fila+14).equals("O")) ||
-                (list.get(fila+35).equals("X") &&
-                 list.get(fila+28).equals("X") &&
-                 list.get(fila+21).equals("X") &&
-                 list.get(fila+14).equals("X"))) {
-            Toast.makeText(this, "Ganaste", Toast.LENGTH_LONG).show();
+            list.get(fila+28).equals("O") &&
+            list.get(fila+21).equals("O") &&
+            list.get(fila+14).equals("O")) ||
+           (list.get(fila+35).equals("X") &&
+            list.get(fila+28).equals("X") &&
+            list.get(fila+21).equals("X") &&
+            list.get(fila+14).equals("X"))) {
+
+            Intent i = new Intent(this, Ganador.class);
+            startActivity(i);
         }
     }
 
