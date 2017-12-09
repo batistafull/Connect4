@@ -20,6 +20,7 @@ public class Jugar extends AppCompatActivity implements View.OnClickListener{
     private GridView gridView;
     private List<String> list;
     private int jugador;
+    private String ficha;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,45 +52,39 @@ public class Jugar extends AppCompatActivity implements View.OnClickListener{
      }
 
      public void actualizarJuego(int jugador, int fila){
-         String ficha;
          if(jugador == 1){
-             ficha = "O";
+             this.ficha = "O";
              this.jugador = 2;
          }else{
-             ficha = "X";
+             this.ficha = "X";
              this.jugador = 1;
          }
 
          if(list.get(fila+35).equals("-")) {
-             list.set(fila + 35, ficha);
+             list.set(fila + 35, this.ficha);
          }else if(list.get(fila+28).equals("-")){
-             list.set(fila+28, ficha);
+             list.set(fila+28, this.ficha);
          }else if(list.get(fila+21).equals("-")){
-            list.set(fila+21, ficha);
+            list.set(fila+21, this.ficha);
          }else if(list.get(fila+14).equals("-")){
-             list.set(fila+14, ficha);
+             list.set(fila+14, this.ficha);
          }else if(list.get(fila+7).equals("-")){
-             list.set(fila+7, ficha);
+             list.set(fila+7, this.ficha);
          }else if(list.get(fila).equals("-")){
-             list.set(fila, ficha);
-         }else{
-             //list.set(fila+35, "O");
+             list.set(fila, this.ficha);
          }
          adapter();
      }
 
-    public void verificarJuego(int fila){
-        if((list.get(fila+35).equals("O") &&
-            list.get(fila+28).equals("O") &&
-            list.get(fila+21).equals("O") &&
-            list.get(fila+14).equals("O")) ||
-           (list.get(fila+35).equals("X") &&
-            list.get(fila+28).equals("X") &&
-            list.get(fila+21).equals("X") &&
-            list.get(fila+14).equals("X"))) {
-
-            Intent i = new Intent(this, Ganador.class);
-            startActivity(i);
+    public void verificarJuego(int fila, String jugador){
+        int j = 0;
+        for(int x = 35; x >= 0; x -= 7)
+        if(((list.get(fila+x).equals(jugador)))) {
+            j+=1;
+            if(j == 4){
+                Intent i = new Intent(this, Ganador.class);
+                startActivity(i);
+            }
         }
     }
 
@@ -127,6 +122,6 @@ public class Jugar extends AppCompatActivity implements View.OnClickListener{
                 actualizarJuego(this.jugador,fila);
                 break;
         }
-        verificarJuego(fila);
+        verificarJuego(fila, this.ficha);
     }
 }
