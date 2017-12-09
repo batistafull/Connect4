@@ -3,6 +3,7 @@ package activity.demot.connect4;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -21,6 +22,7 @@ public class Jugar extends AppCompatActivity implements View.OnClickListener{
     private List<String> list;
     private int jugador;
     private String ficha;
+    private int fila;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,14 +78,45 @@ public class Jugar extends AppCompatActivity implements View.OnClickListener{
          adapter();
      }
 
-    public void verificarJuego(int fila, String jugador){
+    public void verificarJuegoHorizontal(int fila, String jugador) {
         int j = 0;
-        for(int x = 35; x >= 0; x -= 7)
-        if(((list.get(fila+x).equals(jugador)))) {
-            j+=1;
-            if(j == 4){
-                Intent i = new Intent(this, Ganador.class);
-                startActivity(i);
+        for (int x = fila + 35; x >= 0; x -= 1) {
+            if (list.get(x).equals(jugador)) {
+                j += 1;
+                if (j == 4) {
+                    Intent i = new Intent(this, Ganador.class);
+                    startActivity(i);
+                }
+            } else {
+                j = 0;
+            }
+        }
+    }
+    public void verificarJuegoVertical(int fila, String jugador) {
+        int j = 0;
+        for(int x = fila+35; x >= 0; x -= 7) {
+            if (list.get(x).equals(jugador)) {
+                j += 1;
+                if (j == 4) {
+                    Intent i = new Intent(this, Ganador.class);
+                    startActivity(i);
+                }
+            } else {
+                j = 0;
+            }
+        }
+    }
+    public void verificarJuegoDiagonal(int fila, String jugador) {
+        int j = 0;
+        for(int x = fila+35; x >= 0; x -= 6) {
+            if (list.get(x).equals(jugador)) {
+                j += 1;
+                if (j == 4) {
+                    Intent i = new Intent(this, Ganador.class);
+                    startActivity(i);
+                }
+            } else {
+                j = 0;
             }
         }
     }
@@ -91,37 +124,39 @@ public class Jugar extends AppCompatActivity implements View.OnClickListener{
     @Override
     public void onClick(View v) {
         int btnId = v.getId();
-        int fila = 0;
+
         switch (btnId){
             case R.id.btn1:
-                fila = 0;
-                actualizarJuego(this.jugador,fila);
+                this.fila = 0;
+                actualizarJuego(this.jugador,this.fila);
                 break;
             case R.id.btn2:
-                fila = 1;
-                actualizarJuego(this.jugador,fila);
+                this.fila = 1;
+                actualizarJuego(this.jugador,this.fila);
                 break;
             case R.id.btn3:
-                fila = 2;
-                actualizarJuego(this.jugador,fila);
+                this.fila = 2;
+                actualizarJuego(this.jugador,this.fila);
                 break;
             case R.id.btn4:
-                fila = 3;
-                actualizarJuego(this.jugador,fila);
+                this.fila = 3;
+                actualizarJuego(this.jugador,this.fila);
                 break;
             case R.id.btn5:
-                fila = 4;
-                actualizarJuego(this.jugador,fila);
+                this.fila = 4;
+                actualizarJuego(this.jugador,this.fila);
                 break;
             case R.id.btn6:
-                fila = 5;
-                actualizarJuego(this.jugador,fila);
+                this.fila = 5;
+                actualizarJuego(this.jugador,this.fila);
                 break;
             case R.id.btn7:
-                fila = 6;
-                actualizarJuego(this.jugador,fila);
+                this.fila = 6;
+                actualizarJuego(this.jugador,this.fila);
                 break;
         }
-        verificarJuego(fila, this.ficha);
+        verificarJuegoVertical(fila, this.ficha);
+        verificarJuegoHorizontal(fila, this.ficha);
+        verificarJuegoDiagonal(fila, this.ficha);
     }
 }
