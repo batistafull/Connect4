@@ -4,27 +4,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fondo"
     tools:context="activity.demot.connect4.MainActivity">
 
     <ImageView
         android:id="@+id/imgportada"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/portada"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/logo"
         android:layout_above="@+id/play"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="27dp" />
-    <Button
+
+    <ImageButton
         android:id="@+id/play"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="PLAY"
+        android:layout_above="@+id/puntuacion"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="23dp"
+        android:src="@drawable/play"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_alignParentBottom="true"
+        android:background="@android:color/transparent" />
+
+    <ImageButton
+        android:id="@+id/puntuacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="143dp" />
+        android:layout_marginBottom="59dp"
+        android:src="@drawable/puntuacion"
+        android:background="@android:color/transparent" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:text="Acerca de"
+        android:textAlignment="center"
+        android:textColor="#fff"
+        android:textSize="20dp"
+        android:id="@+id/textView" />
 
 </RelativeLayout>

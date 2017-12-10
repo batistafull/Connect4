@@ -9,14 +9,14 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private Button btnPlay;
+    private ImageButton btnPlay;
     private ImageView imageView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         imageView = (ImageView) findViewById(R.id.imgportada);
-        btnPlay = (Button) findViewById(R.id.play);
+        btnPlay = (ImageButton) findViewById(R.id.play);
         btnPlay.setOnClickListener(this);
     }
 

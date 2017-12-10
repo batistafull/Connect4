@@ -4,13 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fondo"
     tools:context="activity.demot.connect4.Ganador">
-    
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="28dp"
+        android:src="@drawable/victoria" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:textSize="46dp"
-        android:text="Has Ganado !!!"
-        android:gravity="center"/>
+        android:text="Victoria"
+        android:gravity="center"
+        android:textColor="#fff"/>
 
 </RelativeLayout>
