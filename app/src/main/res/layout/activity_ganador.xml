@@ -8,20 +8,33 @@
     tools:context="activity.demot.connect4.Ganador">
 
     <ImageView
+        android:id="@+id/imageView3"
         android:layout_width="400dp"
         android:layout_height="400dp"
-        android:layout_marginTop="28dp"
-        android:src="@drawable/victoria"
-        android:id="@+id/imageView3" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/victoria" />
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/imageView3"
         android:gravity="center"
         android:text="Victoria"
         android:textColor="#fff"
         android:textSize="46dp" />
+
+    <Button
+        android:id="@+id/btnOtra"
+        android:background="@color/colorPrimary"
+        android:textColor="#fff"
+        android:layout_width="130dp"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/textView"
+        android:text="Inicio" />
 
 </RelativeLayout>

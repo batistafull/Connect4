@@ -1,6 +1,7 @@
 package activity.demot.connect4;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_main);
         imageView = (ImageView) findViewById(R.id.imgportada);
         btnPlay = (ImageButton) findViewById(R.id.play);
@@ -47,5 +49,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             break;
         }
         startActivity(intent);
+    }
+    @Override
+    public void onBackPressed (){
     }
 }
