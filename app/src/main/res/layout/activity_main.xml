@@ -34,7 +34,7 @@
         android:id="@+id/puntuacion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/textView"
+        android:layout_above="@+id/acerca"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="59dp"
         android:src="@drawable/puntuacion"
@@ -49,6 +49,6 @@
         android:textAlignment="center"
         android:textColor="#fff"
         android:textSize="20dp"
-        android:id="@+id/textView" />
+        android:id="@+id/acerca"/>
 
 </RelativeLayout>
