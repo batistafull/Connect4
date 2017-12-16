@@ -13,6 +13,7 @@ public class Puntuacion extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_puntuacion);
+        getSupportActionBar().hide();
         textView = (TextView) findViewById(R.id.text1);
         SharedPreferences prefs = getSharedPreferences("Historial", Context.MODE_PRIVATE);
         textView.setText(prefs.getString("puntuacion", ""));

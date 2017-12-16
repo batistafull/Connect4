@@ -1,6 +1,7 @@
 package activity.demot.connect4;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,6 +29,9 @@ public class Jugar extends AppCompatActivity implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jugar);
+        getSupportActionBar().hide();
+        MediaPlayer mp = MediaPlayer.create(this, R.raw.musicinside);
+        mp.start();
         gridView = (GridView) findViewById(R.id.gridView);
         list = new ArrayList<>();
         jugador = 1;

@@ -1,6 +1,7 @@
 package activity.demot.connect4;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -25,6 +26,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         txt1.setOnClickListener(this);
         imgBtn.setOnClickListener(this);
         btnPlay.setOnClickListener(this);
+        MediaPlayer mp = MediaPlayer.create(this, R.raw.music);
+        mp.start();
+        getSupportActionBar().hide();
     }
 
     @Override

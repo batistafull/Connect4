@@ -11,6 +11,7 @@ public class Ganador extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ganador);
+        getSupportActionBar().hide();
         SharedPreferences prefs = getSharedPreferences("Historial", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
         editor.putString("puntuacion", "100");
